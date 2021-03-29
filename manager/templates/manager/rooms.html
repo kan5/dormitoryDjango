@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+{% block title %}Комнаты{% endblock %}
+
+{% block menu %}
+    {% include 'manager/menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <h1>Комнаты</h1>
+<div class="row">
+    <div class="table">
+        <table class="table">
+        <thead>
+            <th>Комната</th>
+            <th>Количество мест</th>
+            <th></th>
+        </thead>
+            <tbody>
+                {% for room in rooms %}
+                <tr>
+                    <td><strong>{{ room.number }}</strong></td>
+                    <td><strong>{{ room.places }}</strong></td>
+                    <td><strong><a href="{% url 'mg_room_form' room.id %}" class="btn btn-success">Изменить</a></strong>
+                    <strong><a href="{% url 'mg_room_delete' room.id %}" class="btn btn-danger">Удалить</a></strong></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'mg_room_add' %}" class="btn btn-success">Добавить</a>
+    <div>
+</div>
+{% endblock %}

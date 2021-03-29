@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+{% load bootstrap4 %}
+{% bootstrap_css %}
+<!--{% bootstrap_javascript jquery="full" %}-->
+<head>
+    <title> {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="shortcut icon" type="image/svg" href="{% static 'img/home.svg' %}"/>
+    <script src="https://kit.fontawesome.com/acd403bcf8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <aside>
+    <ul>
+      {% block menu %}
+      {% endblock %}
+      <br>
+      <a href="{% url 'logout'%}"><li><i class="fas fa-sign-out-alt"></i> Выйти</li></a>
+    </ul>
+  </aside>
+  <div>
+      <main>
+    {% block content %}<!-- default content text (typically empty) -->{% endblock %}
+  </main>
+  </div>
+
+</body>
+</html>

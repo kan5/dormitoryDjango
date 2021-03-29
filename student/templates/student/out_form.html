@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+{% block title %}Оценка качества жизни{% endblock %}
+
+{% block menu %}
+    {% include 'student/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <button class="btn btn-success" type="submit">Отправить</button><br>
+        <a>{{ error }}</a>
+    </form>
+
+{% endblock %}

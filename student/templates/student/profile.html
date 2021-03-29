@@ -1,0 +1,53 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Информация{% endblock %}
+
+{% block menu %}
+    {% include 'student/menu.html' %}
+{% endblock %}
+
+{% block content %}
+<form>
+    <div class="form-group row">
+    <label for="1" class="col-sm-3 col-form-label">ФИО</label>
+        <div class="col-sm-3">
+            <div class="form-control-plaintext" id="1">{{ std.surname}} {{ std.name}} {{ std.patronymic}}</div>
+        </div>
+    </div>
+<hr class="dotted">
+    <div class="form-group row">
+    <label for="2" class="col-sm-3 col-form-label">Дата рождения</label>
+        <div class="col-sm-4">
+            <div class="form-control-plaintext" id="2">{{ std.born}}</div>
+        </div>
+    </div>
+<hr class="dotted">
+    <div class="form-group row">
+    <label for="3" class="col-sm-3 col-form-label">Город регистрации</label>
+        <div class="col-sm-2">
+            <div class="form-control-plaintext" id="3">{{ std.city_of_registration}}</div>
+        </div>
+    </div>
+<hr class="dotted">
+    <div class="form-group row">
+    <label for="4" class="col-sm-3 col-form-label">Академическая группа</label>
+        <div class="col-sm-2">
+            <div class="form-control-plaintext" id="4">{{ std.group}}</div>
+        </div>
+    </div>
+<hr class="dotted">
+    <div class="form-group row">
+    <label for="5" class="col-sm-3 col-form-label">Курс</label>
+        <div class="col-sm-2">
+            <div class="form-control-plaintext" id="5">{{std.course}}</div>
+        </div>
+    </div>
+<hr class="dotted">
+    <div class="form-group row">
+    <label for="6" class="col-sm-3 col-form-label">Комната</label>
+        <div class="col-sm-2">
+            <div class="form-control-plaintext" id="6">{{std.room }}</div>
+        </div>
+    </div>
+</form>
+{% endblock %}

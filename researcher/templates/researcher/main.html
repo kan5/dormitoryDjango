@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+{% block title %}Данные{% endblock %}
+
+{% block menu %}
+    {% include 'researcher/menu.html' %}
+{% endblock %}
+
+{% block content %}
+<form>
+    <rsr>
+        <h4 class="h4">Выгрузка csv:</h4>
+        <a href="{% url 'csv_st' %}" class="btn btn-secondary">Студенты</a><br>
+        <a href="{% url 'csv_in' %}" class="btn btn-secondary">Формы на заселение</a><br>
+        <a href="{% url 'csv_out' %}" class="btn btn-secondary">Формы оценки качества жизни</a><br>
+        <a href="{% url 'csv_rooms' %}" class="btn btn-secondary">Комнаты</a>
+    </rsr>
+</form>
+{% endblock %}

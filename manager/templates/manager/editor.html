@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+{% block title %}Студенты{% endblock %}
+
+{% block menu %}
+    {% include 'manager/menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <h1>Студенты</h1>
+<div class="row">
+        <div class="table">
+        <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Комната</th>
+                <th>Логин</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+            <td><strong>{{ forloop.counter }}</strong></td>
+            <td><strong>{{ student.surname }}</strong></td>
+            <td><strong>{{ student.name }}</strong></td>
+            <td><strong>{{ student.patronymic }}</strong></td>
+            <td><strong>
+                {% if student.room == None %}
+                    -
+                {% else %}
+                    {{ student.room }}
+                {% endif %}
+            </strong></td>
+            <td><strong>{{ student.user.username }}</strong></td>
+            <td><strong><a href="{% url 'mg_form' student.id %}" class="btn btn-success">Изменить</a></strong>
+            <strong><a href="{% url 'mg_student_delete' student.user.id %}" class="btn btn-danger">Удалить</a></strong></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        <a href="{% url 'mg_new_student' %}" class="btn btn-success">Добавить</a>
+    <div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+{% block title %}Новый студент{% endblock %}
+
+{% block menu %}
+    {% include 'manager/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <br><button class="btn btn-success" type="submit" value="Save">Сохранить</button>
+        <a href="{% url 'mg_rooms' %}" class="btn btn-secondary" type="submit" value="Unsaved">Отмена</a><br>
+        <a>{{ error }}</a><br>
+    </form>
+
+{% endblock %}
